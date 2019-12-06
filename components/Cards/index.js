@@ -17,3 +17,68 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+const articleEntry = document.querySelector('.cards-container')
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then(response => {
+    console.log(response);
+    console.log(response.data);
+    console.log(response.data.articles);
+    console.log(response.data.articles.bootstrap);
+    const articleData = Object.entries(response.data.articles);
+    console.log(articleData);
+    articleData.forEach(articleArray => {
+        articleArray[1].forEach(article => {
+            articleEntry.appendChild(createArticle(article));
+        })
+    })
+
+    })
+
+.catch(error => {
+    console.log(error);
+})
+// <div class="card">
+//   <div class="headline">{Headline of article}</div>
+//   <div class="author">
+//     <div class="img-container">
+//       <img src={url of authors image} />
+//     </div>
+//     <span>By {authors name}</span>
+//   </div>
+// </div>document.createElementconst articleCard = ('div;const headline = 
+
+function createArticle(property) {
+
+    //elements
+    const articleCard = document.createElement('div');
+    const headline = document.createElement('div');
+    const author = document.createElement('div');
+    const imgContainer = document.createElement('div');
+    const image = document.createElement('img');
+    const authorName = document.createElement('span');
+
+    //classes
+    articleCard.classList.add('card');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imgContainer.classList.add('img-container');
+
+    //structure append
+    articleCard.appendChild(headline);
+    articleCard.appendChild(author);
+    
+    author.appendChild(imgContainer);
+    author.appendChild(authorName)
+
+    imgContainer.appendChild(image);
+
+    //content
+    headline.textContent = property.headline;
+    image.src = property.authorPhoto;
+    authorName.textContent = `By ${property.authorName}`;
+
+    return articleCard;
+
+
+
+}

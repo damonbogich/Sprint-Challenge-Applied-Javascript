@@ -17,3 +17,55 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const carouselEntry = document.querySelector('.carousel-container');
+console.log(carouselEntry);
+carouselEntry.appendChild(createComponent());
+function createComponent(){
+  //createElements
+  const carousel = document.createElement('div');
+  const leftButton = document.createElement('div');
+  const image1 = document.createElement('img');
+  const image2 = document.createElement('img');
+  const image3 = document.createElement('img');
+  const image4 = document.createElement('img');
+  const rightButton = document.createElement('div');
+
+  //classes
+  carousel.classList.add('carousel');
+  leftButton.classList.add('left-button');
+  rightButton.classList.add('right-button');
+
+  //content 
+  image1.src = './assets/carousel/mountains.jpeg';
+  image2.src = './assets/carousel/computer.jpeg';
+  image3.src = './assets/carousel/trees.jpeg';
+  image4.src = './assets/carousel/turntable.jpeg'
+
+  
+  //append
+  carousel.appendChild(leftButton);
+  carousel.appendChild(image1);
+  carousel.appendChild(image2);
+  carousel.appendChild(image3);
+  carousel.appendChild(image4);
+  carousel.appendChild(rightButton);
+
+  //toggle span: 
+  // expandButton.addEventListener('click', () => {
+  //   articleDiv.classList.toggle('article-open');
+  // })
+  image1.style.display = 'block';
+  
+  //toggle right
+  
+  
+  
+  console.log(carousel);
+
+  return carousel;
+
+
+
+
+}
