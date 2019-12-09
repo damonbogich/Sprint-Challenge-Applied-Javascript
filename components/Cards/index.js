@@ -25,7 +25,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     console.log(response.data.articles);
     console.log(response.data.articles.bootstrap);
     const articleData = Object.entries(response.data.articles);
-    console.log(articleData);
+    console.log('article data', articleData);
     articleData.forEach(articleArray => {
         articleArray[1].forEach(article => {
             articleEntry.appendChild(createArticle(article));

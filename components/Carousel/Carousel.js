@@ -57,8 +57,55 @@ function createComponent(){
   // })
   image1.style.display = 'block';
   
-  //toggle right
+  // toggle right
+  rightButton.addEventListener('click', () => {
+    if(image1.style.display == 'block') {
+      image1.style.display = 'none';
+      image2.style.display = 'block';
+    }
+    
+    else if(image2.style.display == 'block') {
+      image2.style.display = 'none';
+      image3.style.display = 'block';
+    }
+    else if(image3.style.display == 'block') {
+      image3.style.display = 'none';
+      image4.style.display = 'block';
+    }
+    else if(image4.style.display == 'block'){
+      image4.style.display = 'none';
+      image1.style.display = 'block';
+    }
+    else{
+      image1.style.display = 'block';
+    }
+    
+    
   
+  })
+
+  leftButton.addEventListener('click', () => {
+    if(image1.style.display == 'block') {
+      image1.style.display = 'none';
+      image4.style.display = 'block';
+    }
+    else if(image4.style.display == 'block') {
+      image4.style.display = 'none';
+      image3.style.display = 'block';
+    }
+    else if(image3.style.display == 'block') {
+      image3.style.display = 'none';
+      image2.style.display = 'block';
+    }
+    else if(image2.style.display == 'block') {
+      image2.style.display = 'none';
+      image1.style.display = 'block';
+    }
+    else{
+      image1.style.display = 'block';
+    }
+
+  })
   
   
   console.log(carousel);
